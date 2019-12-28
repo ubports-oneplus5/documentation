@@ -78,10 +78,10 @@ If needed you'll want to downgrade to [O<sub>2</sub>OS 4.5.15 pre-treble firmwar
 
 ## Installing Ubuntu Touch
 Copy the URL link to your desired Ubuntu Touch RootFS from below:
-* [Edge arm64 rootfs](https://ci.ubports.com/job/xenial-hybris-edge-rootfs-arm64/lastSuccessfulBuild/artifact/out/ubuntu-touch-hybris-xenial-edge-arm64-rootfs.tar.gz)
-* [Edge armhf rootfs](https://ci.ubports.com/job/xenial-hybris-edge-rootfs-armhf/lastSuccessfulBuild/artifact/out/ubuntu-touch-hybris-xenial-edge-armhf-rootfs.tar.gz)
-* [Xenial arm64 rootfs](https://ci.ubports.com/job/xenial-rootfs-arm64/lastSuccessfulBuild/artifact/out/ubports-touch.rootfs-xenial-arm64.tar.gz)
-* [Xenial armhf rootfs](https://ci.ubports.com/job/xenial-rootfs-armhf/lastSuccessfulBuild/artifact/out/ubports-touch.rootfs-xenial-armhf.tar.gz)
+* [Edge arm64 rootfs](https://ci.ubports.com/job/xenial-hybris-edge-rootfs-arm64/lastSuccessfulBuild/artifact/out/ubuntu-touch-hybris-xenial-edge-arm64-rootfs.tar.gz) ([Jenkins CI site](https://ci.ubports.com/job/xenial-hybris-edge-rootfs-arm64/))
+* [Edge armhf rootfs](https://ci.ubports.com/job/xenial-hybris-edge-rootfs-armhf/lastSuccessfulBuild/artifact/out/ubuntu-touch-hybris-xenial-edge-armhf-rootfs.tar.gz) ([Jenkins CI site](https://ci.ubports.com/job/xenial-hybris-edge-rootfs-armhf/))
+* [Xenial arm64 rootfs](https://ci.ubports.com/job/xenial-rootfs-arm64/lastSuccessfulBuild/artifact/out/ubports-touch.rootfs-xenial-arm64.tar.gz) ([Jenkins CI site](https://ci.ubports.com/job/xenial-rootfs-arm64/))
+* [Xenial armhf rootfs](https://ci.ubports.com/job/xenial-rootfs-armhf/lastSuccessfulBuild/artifact/out/ubports-touch.rootfs-xenial-armhf.tar.gz) ([Jenkins CI site](https://ci.ubports.com/job/xenial-rootfs-armhf/))
 
 Next let's deploy the Ubuntu Touch `rootfs` & built `system.img` using [@JBBgameich](https://gitlab.com/JBBgameich)'s [`halium-install`](https://gitlab.com/JBBgameich/halium-install) scripts:
 ```
