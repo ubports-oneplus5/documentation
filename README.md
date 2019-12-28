@@ -46,9 +46,9 @@ sudo apt install git gnupg flex bison gperf build-essential \
 
 ## Initializing local repo
 ```
-mkdir -p ~/Halium/ && cd ~/Halium/
+mkdir ~/Halium/ && cd ~/Halium/
 repo init -u https://github.com/Halium/android.git -b halium-7.1 --depth 1
-git clone https://gitlab.com/JBBgameich/halium-install/ halium/scripts/
+git clone https://gitlab.com/JBBgameich/halium-install/ halium/scripts/ --depth 1
 ```
 
 ## Syncing local repository
@@ -56,24 +56,25 @@ git clone https://gitlab.com/JBBgameich/halium-install/ halium/scripts/
 cd ~/Halium/
 repo sync --no-clone-bundle --no-tags -c -j`nproc`
 curl https://git.io/JeNka -Lo halium/devices/manifests/oneplus_cheeseburger.xml
+halium/devices/setup cheeseburger
 ```
 
 ## Building HAL parts
 Type the following to initilize the current environment for building:
 ```
-halium/devices/setup cheeseburger
 . build/envsetup.sh
 breakfast cheeseburger
 export LANG=C LC_ALL=POSIX
 ```
 To produce the required `halium-boot.img` & `system.img` image files for Ubuntu Touch, execute:
 ```
-mka halium-boot
-mka systemimage
+mka halium-boot systemimage
 ```
 
 ## Downgrading firmware & TWRP<a name="downgrading-firmware-twrp"></a>
-If needed you'll need to downgrade to [O<sub>2</sub>OS 4.5.15 pre-treble firmware](http://download940.mediafire.com/eqz30j0gbc0g/df2wbe8ix0xfiw9/OnePlus+5+OxygenOS+4.5.15+Firmware+%2B+Radio.zip) & flash a [TWRP <3.2.x image](https://forum.xda-developers.com/devdb/project/dl/?id=27442&task=get) on your recovery partition & reboot to TWRP again to proceed.
+If needed you'll want to downgrade to [O<sub>2</sub>OS 4.5.15 pre-treble firmware](http://download940.mediafire.com/eqz30j0gbc0g/df2wbe8ix0xfiw9/OnePlus+5+OxygenOS+4.5.15+Firmware+%2B+Radio.zip) on your device & flash a [TWRP <3.2.x image](https://forum.xda-developers.com/devdb/project/dl/?id=27442) on your recovery partition & reboot to TWRP again to proceed.
+
+**NOTE:** Full backup of **all data** (as per usual) & format of `userdata` partition is also highly recommended.
 
 ## Installing Ubuntu Touch
 Copy the URL link to your desired Ubuntu Touch RootFS from below:
@@ -82,7 +83,7 @@ Copy the URL link to your desired Ubuntu Touch RootFS from below:
 * [Xenial arm64 rootfs](https://ci.ubports.com/job/xenial-rootfs-arm64/lastSuccessfulBuild/artifact/out/ubports-touch.rootfs-xenial-arm64.tar.gz)
 * [Xenial armhf rootfs](https://ci.ubports.com/job/xenial-rootfs-armhf/lastSuccessfulBuild/artifact/out/ubports-touch.rootfs-xenial-armhf.tar.gz)
 
-Next let's install the Ubuntu Touch `rootfs` & `system.img` using JBBgameich's `halium-install` scripts:
+Next let's deploy the Ubuntu Touch `rootfs` & built `system.img` using [@JBBgameich](https://gitlab.com/JBBgameich)'s [`halium-install`](https://gitlab.com/JBBgameich/halium-install) scripts:
 ```
 URL="<insert rootfs url here>"
 ROOTFS="$HOME/Halium/ubuntu-touch-rootfs.tar.gz"
