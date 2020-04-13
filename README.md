@@ -115,7 +115,10 @@ sudo mount / -o remount,rw
 ```
 sudo lxc-attach -n android -- /system/bin/logcat
 ```
-**NOTE:** This example command in particular fails on `armhf` root filesystems such as the one used on Erfan's GSI!
+**NOTE:** If this fails and you're using an `armhf` rootfs (like on Erfan's GSI) run the following command instead:
+```
+sudo env LD_LIBRARY_PATH=/system/lib64:/vendor/lib64 lxc-attach -n android -- /system/bin/logcat
+```
 
 ### Networking on-device via USB
 Host:
