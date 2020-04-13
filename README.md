@@ -10,7 +10,6 @@ UBports Ubuntu Touch documentation for the OnePlus 5/5T.
 * [Firmware & TWRP](#firmware-twrp)
 * [Installing using Erfan GSI](#installing-using-erfan-gsi)
 * [Installing Ubuntu Touch manually](#installing-ubuntu-touch-manually)
-* [Miscellaneous steps](#miscellaneous-steps)
 * [Helpful tips for Ubuntu Touch](#helpful-tips-for-ubuntu-touch)
 
 ## Install prerequisites for building
@@ -104,13 +103,19 @@ ssh phablet@10.15.19.82
 
 ### Gain root user access
 ```
-sudo -i
+sudo -s
 ```
 
 ### RootFS as read-write
 ```
 sudo mount / -o remount,rw
 ```
+
+### Running commands inside the Android HAL LXC container
+```
+sudo lxc-attach -n android -- /system/bin/logcat
+```
+**NOTE:** This example command in particular fails on `armhf` root filesystems such as the one used on Erfan's GSI!
 
 ### Networking on-device via USB
 Host:
@@ -124,6 +129,33 @@ Device:
 sudo ip route add default via 10.15.19.100
 echo nameserver 1.1.1.1 | sudo tee /etc/resolv.conf > /dev/null
 ```
+
+### Expand the GSI RootFS from 2 GiB
+This is an example on how to expand the rootfs image by 6 GiB so it becomes 8 GiB in total. Begin by booting your device back to TWRP and start following the instructions below:
+
+**WARNING:** Each 1.35 GiB adds about a minute to the transfer!
+```
+adb pull /data/rootfs.img .
+dd if=/dev/zero of=zeroes.img bs=1 count=1 seek=6G   # <- change from 6G to desired increase size
+cat zeroes.img >> rootfs.img
+resize2fs -f rootfs.img
+adb push rootfs.img /data/
+adb shell "sync && reboot"
+rm {zeroes,rootfs}.img
+```
+
+### Anbox setup
+First expand the rootfs (by at least 1 GiB) and afterwards enable USB networking using above instructions, then run:
+```
+sudo mount -o rw,remount /
+sudo apt update && sudo apt install -y anbox-ubuntu-touch android-tools-adb
+mkdir ~/anbox-data
+wget http://cdimage.ubports.com/anbox-images/android-armhf-64binder.img -O ~/anbox-data/android.img
+touch ~/anbox-data/.enable
+sudo chmod -R o+wrx /home/phablet/anbox-data/data
+sudo start -q anbox-container
+```
+After these just reboot twice, waiting about two minutes before doing so again :)
 
 ### Interacting with the RootFS from TWRP
 ```
