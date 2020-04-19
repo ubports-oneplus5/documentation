@@ -75,7 +75,7 @@ fastboot flash boot out/target/product/cheeseburger/halium-boot.img
 ```
 
 ## Firmware & TWRP<a name="firmware-twrp"></a>
-You may need to install the latest O<sub>2</sub>OS 9.0.11 firmware ([OP5](https://drive.google.com/open?id=1jLhMVJCGLT6MMnLcu-BhSyjd5JvUtUkO) / ~~OP5T~~) on your device (if you aren't already on it) & flash a [TWRP >=3.3.x image](https://github.com/engstk/android_device_oneplus_cheeseburger/releases) on your recovery partition & reboot to TWRP again to proceed.
+You may need to install the latest O<sub>2</sub>OS 9.0.11 firmware ([OP5](https://sourceforge.net/projects/crdroid/files/cheeseburger/6.x/firmware/firmware_9.0.11_oneplus5.zip/download) / [OP5T](https://sourceforge.net/projects/crdroid/files/dumpling/6.x/firmware/firmware_9.0.11_oneplus5T.zip/download)) on your device (if you aren't already on it) & flash a [TWRP >=3.3.x image](https://github.com/engstk/android_device_oneplus_cheeseburger/releases) on your recovery partition & reboot to TWRP again to proceed.
 
 **NOTE:** Full backup of **all data** (as per usual) & format of `userdata` partition is also highly recommended.
 
