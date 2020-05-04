@@ -133,22 +133,14 @@ sudo ip route add default via 10.15.19.100
 echo nameserver 1.1.1.1 | sudo tee /etc/resolv.conf > /dev/null
 ```
 
-### Expand the GSI RootFS from 2 GiB
-This is an example on how to expand the rootfs image by 6 GiB so it becomes 8 GiB in total. Begin by booting your device back to TWRP and start following the instructions below:
-
-**WARNING:** Each 1.35 GiB adds about a minute to the transfer!
+### Expand the GSI RootFS size
+This is an example on how to expand the rootfs image to 16 GiB. Begin by booting your device back to TWRP, connect the USB cable and run the command below from your host:
 ```
-adb pull /data/rootfs.img .
-dd if=/dev/zero of=zeroes.img bs=1 count=1 seek=6G   # <- change from 6G to desired increase size
-cat zeroes.img >> rootfs.img
-resize2fs -f rootfs.img
-adb push rootfs.img /data/
-adb shell "sync && reboot"
-rm {zeroes,rootfs}.img
+adb shell "resize2fs /data/rootfs.img 16G"
 ```
 
 ### Anbox setup
-First expand the rootfs (by at least 1 GiB) and afterwards enable USB networking using above instructions, then run:
+Start by enabling USB networking using above instructions and then run the following:
 ```
 sudo mount -o rw,remount /
 sudo apt update && sudo apt install -y anbox-ubuntu-touch android-tools-adb
