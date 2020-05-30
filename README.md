@@ -15,7 +15,7 @@ UBports Ubuntu Touch documentation for the OnePlus 5/5T.
 ## Install prerequisites for building
 
 ### Arch based systems
-1. Enable [multilib repositories](https://wiki.archlinux.org/index.php/Official_repositories#multilib) & run:
+1. Enable the [multilib repository](https://wiki.archlinux.org/index.php/Official_repositories#multilib) & run:
 ```
 sudo pacman -Syyu --needed base-devel git
 cd /tmp/
