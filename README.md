@@ -41,7 +41,6 @@ sudo apt install git gnupg flex bison gperf build-essential \
 mkdir ~/Halium/ && cd ~/Halium/
 repo init -u https://github.com/Halium/android -b halium-9.0 --depth=1
 git clone https://github.com/ubports-oneplus5/local_manifests -b halium-9.0 .repo/local_manifests/
-git clone https://gitlab.com/JBBgameich/halium-install/ halium/scripts/ --depth 1
 ```
 
 ## Syncing local repository
