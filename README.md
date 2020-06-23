@@ -2,6 +2,7 @@
 UBports Ubuntu Touch documentation for the OnePlus 5/5T.
 
 ### Table of Contents
+* [Status of the port](#status-of-the-port)
 * [Install prerequisites for building](#install-prerequisites-for-building)
 * [Initializing local repo](#initializing-local-repo)
 * [Syncing local repository](#syncing-local-repository)
@@ -11,6 +12,22 @@ UBports Ubuntu Touch documentation for the OnePlus 5/5T.
 * [Installing using Erfan GSI](#installing-using-erfan-gsi)
 * [Installing Ubuntu Touch manually](#installing-ubuntu-touch-manually)
 * [Helpful tips for Ubuntu Touch](#helpful-tips-for-ubuntu-touch)
+
+## Status of the port
+
+### What works
+
+- Booting
+- Touch screen
+- Volume buttons
+
+### What doesn't work
+
+- Camera/Flash
+- WiFi
+- GSM
+- Bluetooth
+- Power button
 
 ## Install prerequisites for building
 
