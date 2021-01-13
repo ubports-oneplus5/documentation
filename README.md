@@ -1,4 +1,9 @@
-# documentation
+# NOTICE
+I've stopped working on this alone and I'm archiving all the sources under this org (and potentially deleting them later).
+
+In case you're still interested, please see the official and now merged sources @ https://github.com/Halium/halium-devices/pull/275; CI for system/vendor images for 5/5T should appear later.
+
+## documentation
 UBports Ubuntu Touch documentation for the OnePlus 5/5T.
 
 ### Table of Contents
